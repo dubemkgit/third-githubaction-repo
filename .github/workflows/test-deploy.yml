@@ -31,4 +31,4 @@ jobs:
               run: |
                npm ci
                npm run build
-            - run: echo "Run Completed"
+            - run: echo "Deploying Project.."
