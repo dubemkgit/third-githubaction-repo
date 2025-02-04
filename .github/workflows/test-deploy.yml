@@ -16,7 +16,7 @@ jobs:
         - name: Test Node.js Code
           run: |
            npm test
-           npm lint
+           npm run lint
         - run: echo "Run Completed"
 
     Build:
