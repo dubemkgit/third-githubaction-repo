@@ -1,0 +1,9 @@
+name: Issues Occurs
+on: push 
+
+jobs:
+    Output-failed:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Print out all statements
+          run: echo "My Result is ${{ toJson(github) }}"
