@@ -13,5 +13,22 @@ jobs:
             node-version: 18
         - name: Run Ci
           run: npm ci
-        - name: Test Code
+        - name: Test Node.js Code
           run: npm test
+        - run: echo "Run Completed"
+
+    Build:
+            needs: Test-code
+            runs-on: ubuntu-latest
+            steps:
+            - name: Get Code from Repo
+              uses: actions/checkout@v4
+            - name: Install Node.js and version
+              uses: actions/setup-node@v4
+              with:
+                node-version: 18
+            - name: Run Ci
+              run: |
+               npm ci
+               npm run build
+            - run: echo "Run Completed"
