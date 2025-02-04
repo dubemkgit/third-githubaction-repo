@@ -4,10 +4,11 @@ on:
     branches:
       - main
 env:
+  os_runner: ubuntu-latest
 
 jobs:
     Test:
-        runs-on: ubuntu-latest
+        runs-on: ${{ env. os_runner}}
         steps:
         - name: Get Code from Repo
           uses: actions/checkout@v4
