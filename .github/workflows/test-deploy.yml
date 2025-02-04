@@ -92,6 +92,7 @@ jobs:
            npm run lint
         - run: echo "Run Init completed"
     report:
+      if: failure()
       runs-on: ubuntu-latest
       steps:
         - name: Output information
