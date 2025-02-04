@@ -91,3 +91,11 @@ jobs:
           run: |
            npm run lint
         - run: echo "Run Init completed"
+    report:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Output information
+          run: |
+            echo "SOmething went wrong"
+            echo "&{{ github }}"
+
