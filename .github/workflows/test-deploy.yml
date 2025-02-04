@@ -13,7 +13,7 @@ jobs:
             node-version: 18
         - name: Run Ci
           run: npm ci
-        - name: Test Node.js Code
+        - name: Test COde and Run Lint Test
           run: |
            npm test
            npm run lint
