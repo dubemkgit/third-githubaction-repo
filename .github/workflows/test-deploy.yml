@@ -23,10 +23,8 @@ jobs:
             node-version: 18
         - name: Run Ci
           run: ${{ env.run_npm }}
-        - name: Test and LINIt
-          run: |
-           npm run test
-           npm run lint
+        - name: Test and Linit
+          run: npm run test
         - name: Upload test report
           uses: actions/upload-artifact@v4
           with:
@@ -74,5 +72,26 @@ jobs:
           run: ls
         - name: Deploy application
           run: echo "Deploying application".....
+
+    Init:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Get Code from Repo
+          uses: actions/checkout@v4
+        - name: Cache dependencies
+          uses: actions/checkout@v4
+          with: 
+              path: ~/.npm
+              key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
+        - name:  Install Dependencies
+          uses: actions/setup-node@v4
+          with:
+            node-version: 18
+        - name: Run Ci
+          run: ${{ env.run_npm }}
+        - name: Test and Linit
+          run: |
+           npm run lint
+        - run: echo "Run Init completed"
 
 
