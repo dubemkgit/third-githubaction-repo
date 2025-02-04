@@ -27,7 +27,7 @@ jobs:
           uses: actions/upload-artifact@v4
           with:
             name: test-report
-            path: path/to/artifact/world.txt
+            path: proj\src\components\text.txt
 
         - run: echo "Run Completed"
 
