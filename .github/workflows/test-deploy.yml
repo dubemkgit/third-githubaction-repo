@@ -38,6 +38,13 @@ jobs:
              npm ci
              npm run build
           - run: echo "Deploying Project.."
+          - name: Storing re-usable artifatcts
+            uses: actions/upload-artifact@v4
+            with:
+              name: dist-files
+              path: |
+                dist
+                package.json
 
     Deploy:
       needs: Build
