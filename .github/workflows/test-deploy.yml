@@ -14,7 +14,9 @@ jobs:
         - name: Run Ci
           run: npm ci
         - name: Test Node.js Code
-          run: npm test
+          run: |
+           npm test
+           npm lint
         - run: echo "Run Completed"
 
     Build:
