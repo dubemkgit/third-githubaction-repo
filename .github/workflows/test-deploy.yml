@@ -11,7 +11,7 @@ jobs:
         steps:
         - name: Get Code from Repo
           uses: actions/checkout@v4
-        - name: Install Node.js and version
+        - name:  Install Dependencies
           uses: actions/setup-node@v4
           with:
             node-version: 18
@@ -24,12 +24,14 @@ jobs:
         - run: echo "Run Completed"
 
     Build:
+          outputs:
+            script-file:
           needs: Test
           runs-on: ubuntu-latest
           steps:
           - name: Get Code from Repo
             uses: actions/checkout@v4
-          - name: Install Node.js and version
+          - name: Install Dependencies
             uses: actions/setup-node@v4
             with:
               node-version: 18
@@ -43,6 +45,7 @@ jobs:
             with:
               name: dist-files
               path: dist
+
 
     Deploy:
       needs: Build
