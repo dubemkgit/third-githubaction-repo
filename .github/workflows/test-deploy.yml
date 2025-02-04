@@ -27,11 +27,15 @@ jobs:
           run: |
            npm test
            npm run lint
+        - name: Upload test report
+          uses: actions/upload-artifact@v3
+          with:
+            namee: test-report
+            path: test.json
+
         - run: echo "Run Completed"
 
     Build:
-          outputs:
-            script-file:
           needs: Test
           runs-on: ubuntu-latest
           steps:
