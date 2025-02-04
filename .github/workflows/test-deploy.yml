@@ -71,7 +71,7 @@ jobs:
         - name: Deploy application
           run: echo "Deploying application".....
 
-    Init:
+    lnit:
         runs-on: ubuntu-latest
         steps:
         - name: Get Code from Repo
@@ -92,11 +92,12 @@ jobs:
            npm run lint
         - run: echo "Run Init completed"
     report:
+      needs: [lnit,Deploy]
       if: failure()
       runs-on: ubuntu-latest
       steps:
         - name: Output information
           run: |
             echo "SOmething went wrong"
-            echo "&{{ github }}"
+            echo "&{{ toJson(github) }}"
 
