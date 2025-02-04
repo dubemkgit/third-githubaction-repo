@@ -12,7 +12,7 @@ jobs:
         - name: Get Code from Repo
           uses: actions/checkout@v4
         - name: Cache dependencies
-          uses: action/cache@v3
+          uses: actions/checkout@v4
           with: 
             path: ~/.npm
             key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
@@ -37,7 +37,7 @@ jobs:
           - name: Get Code from Repo
             uses: actions/checkout@v4
           - name: Cache dependencies
-            uses: action/cache@v3
+            uses: actions/checkout@v4
             with: 
               path: ~/.npm
               key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
