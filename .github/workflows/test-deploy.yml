@@ -17,12 +17,12 @@ jobs:
           with: 
               path: ~/.npm
               key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
-        - name:  Install Dependencies
+        - name:  Set up Node
           uses: actions/setup-node@v4
           with:
             node-version: 18
-        - name: Run Ci
-          run: ${{ env.run_npm }}
+        - name: Install Dependencies
+          run: npm ci
         - name: Test and Linit
           run: npm run test
         - name: Upload test report
@@ -44,11 +44,11 @@ jobs:
             with: 
               path: ~/.npm
               key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
-          - name: Install Dependencies
+          - name: Set up Node
             uses: actions/setup-node@v4
             with:
               node-version: 18
-          - name: Run Ci
+          - name: Install Dependencies
             run: |
              npm ci
              npm run build
@@ -83,15 +83,13 @@ jobs:
           with: 
               path: ~/.npm
               key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
-        - name:  Install Dependencies
+        - name:  Set up noe
           uses: actions/setup-node@v4
           with:
             node-version: 18
-        - name: Run Ci
+        - name: Install Dependencies
           run: ${{ env.run_npm }}
         - name: Test and Linit
           run: |
            npm run lint
         - run: echo "Run Init completed"
-
-
