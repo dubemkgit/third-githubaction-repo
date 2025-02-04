@@ -4,11 +4,11 @@ on:
     branches:
       - main
 env:
-  os_runner: ubuntu-latest
+  run_npm: npm ci
 
 jobs:
     Test:
-        runs-on: ${{ env. os_runner}}
+        runs-on: ubuntu-latest
         steps:
         - name: Get Code from Repo
           uses: actions/checkout@v4
@@ -22,7 +22,7 @@ jobs:
           with:
             node-version: 18
         - name: Run Ci
-          run: npm ci
+          run: ${{ env.run_npm }}
         - name: Test and LINIt
           run: |
            npm test
