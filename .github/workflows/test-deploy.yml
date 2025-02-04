@@ -1,8 +1,5 @@
-name: Test and Deploy Code
-on: 
-  pull_request:
-    types:
-      - opened
+name: Deploy website
+on:
   workflow_dispatch:
   push:
     branches:
@@ -20,12 +17,13 @@ jobs:
             node-version: 18
         - name: Run Ci
           run: npm ci
-        - name: Test COde
+        - name: Test and LINIt
           run: |
            npm test
+           npm run lint
         - run: echo "Run Completed"
 
-    Lint:
+    Build:
           needs: Test
           runs-on: ubuntu-latest
           steps:
@@ -36,25 +34,16 @@ jobs:
             with:
               node-version: 18
           - name: Run Ci
-            run: npm ci
-          - name: Run Lint Test
             run: |
-             npm run lint
-          - run: echo "Run Completed"
-  
+             npm ci
+             npm run build
+          - run: echo "Deploying Project.."
 
-    Build:
-            needs: Test
-            runs-on: ubuntu-latest
-            steps:
-            - name: Get Code from Repo
-              uses: actions/checkout@v4
-            - name: Install Node.js and version
-              uses: actions/setup-node@v4
-              with:
-                node-version: 18
-            - name: Run Ci
-              run: |
-               npm ci
-               npm run build
-            - run: echo "Deploying Project.."
+    Deploy:
+      needs: Build
+      runs-on: ubuntu-latest
+      steps:
+        - name: Deploy application
+          run: echo "Deploying application".....
+
+
