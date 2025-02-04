@@ -1,9 +1,9 @@
 name: Issues Occurs
-on: push 
+on: issues 
 
 jobs:
     Output-failed:
         runs-on: ubuntu-latest
         steps:
-        - name: Print out all statements
+        - name: Print out event details
           run: echo "My Result is ${{ toJson(github) }}"
