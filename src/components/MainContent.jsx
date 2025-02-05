@@ -6,7 +6,7 @@ function MainContent() {
   const [helpVisible, setHelpVisible] = useState(false);
 
   function toggleHelp() {
-    setHelpVisible((isVisible) => !isVisibl);
+    setHelpVisible((isVisible) => !isVisible);
   }
 
   return (
