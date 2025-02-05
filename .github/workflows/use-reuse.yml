@@ -58,7 +58,6 @@ jobs:
 
 
     Deploy:
-      needs: Build
       uses: ./.github/workflows/reusable.yml
 
     lnit:
