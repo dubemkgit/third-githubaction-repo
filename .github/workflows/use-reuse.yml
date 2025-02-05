@@ -58,7 +58,10 @@ jobs:
 
 
     Deploy:
+      needs: Build
       uses: ./.github/workflows/reusable.yml
+      with: 
+        artifact-name:  dist-files
 
     lnit:
         runs-on: ubuntu-latest
