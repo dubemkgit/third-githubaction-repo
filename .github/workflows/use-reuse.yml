@@ -59,7 +59,7 @@ jobs:
 
     Deploy:
       needs: Build
-      uses: ./.github/workflows/use-reuse.yml
+      uses: ./.github/workflows/reusable.yml
 
     lnit:
         runs-on: ubuntu-latest
